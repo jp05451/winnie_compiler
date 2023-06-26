@@ -1,0 +1,99 @@
+class sigma
+{
+/* 1: {% Sigma.st */
+/* 2:  % */
+/* 3:  % Compute sum = 1 + 2 + ... + n */
+/* 4:  %} */
+/* 5:  */
+/* 6: % constant and variable declarations */
+/* 7: const n: int := 10 */
+/* 8: var sum: int */
+field static int sum
+/* 9: var index: int */
+/* 10:  */
+/* 11: % main statements */
+field static int index
+	method public static void main(java.lang.String[])
+	max_stack 15
+	max_locals 15
+	{
+/* 12: n := 0 */
+sipush 0
+istore 0
+sipush 1
+putstatic int sigma.index
+Lbegin0:
+getstatic int sigma.index
+/* 13: for index: 1 .. n  */
+sipush 10
+isub
+ifgt Loopexit0
+getstatic int sigma.sum
+/* 14:   sum := sum + index */
+getstatic int sigma.index
+iadd
+putstatic int sigma.sum
+getstatic int sigma.index
+sipush 1
+iadd
+putstatic int sigma.index
+goto Lbegin0
+Loopexit0:
+nop
+/* 15: end for */
+getstatic java.io.PrintStream java.lang.System.out
+/* 16: put "The result is " */
+ldc "The result is "
+invokevirtual void java.io.PrintStream.print(java.lang.String)
+getstatic java.io.PrintStream java.lang.System.out
+/* 17: put sum */
+getstatic int sigma.sum
+invokevirtual void java.io.PrintStream.print(int)
+getstatic java.io.PrintStream java.lang.System.out
+invokevirtual void java.io.PrintStream.println()
+/* 18: skip */
+/* 19:  */
+/* 20: % loop */
+/* 21: sum := 0 */
+sipush 0
+putstatic int sigma.sum
+/* 22: index := 1 */
+sipush 1
+putstatic int sigma.index
+Lbegin1:
+/* 23: loop */
+getstatic int sigma.sum
+/* 24:   sum := sum + index */
+getstatic int sigma.index
+iadd
+putstatic int sigma.sum
+getstatic int sigma.index
+/* 25:   index := index + 1 */
+sipush 1
+iadd
+putstatic int sigma.index
+getstatic int sigma.index
+/* 26:   exit when index = n */
+sipush 10
+isub
+ifeq L2
+iconst_0
+goto L3
+L2: iconst_1
+L3:
+ifne Loopexit1
+goto Lbegin1
+Loopexit1:
+nop
+/* 27: end loop */
+getstatic java.io.PrintStream java.lang.System.out
+/* 28: put "The result is " */
+ldc "The result is "
+invokevirtual void java.io.PrintStream.print(java.lang.String)
+getstatic java.io.PrintStream java.lang.System.out
+/* 29: put sum */
+getstatic int sigma.sum
+invokevirtual void java.io.PrintStream.print(int)
+		return
+	}
+}
